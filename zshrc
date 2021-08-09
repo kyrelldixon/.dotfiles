@@ -1,39 +1,12 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=${PATH}:/usr/local/mysql/bin
-export PATH="$PATH:$HOME/flutter/bin"
-export PATH="$HOME/miniconda3/bin:$PATH"
-# added by Anaconda3 5.2.0 installer
-export PATH="/Users/Ky/anaconda3/bin:$PATH"
+# Allow local customizations in the ~/.shell_local_before file
+if [ -f ~/.shell_local_before ]; then
+    source ~/.shell_local_before
+fi
 
-# Load Git completion
-zstyle ':completion:*:*:git:*' script $ZSH/git-completion.bash
-fpath=($ZSH $fpath)
-
-autoload -Uz compinit && compinit
-
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/Ky/.oh-my-zsh
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=robbyrussell
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/Ky/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/Ky/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/Ky/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/Ky/google-cloud-sdk/completion.zsh.inc'; fi
-eval "$(rbenv init -)"
+# Allow local customizations in the ~/.zshrc_local_before file
+if [ -f ~/.zshrc_local_before ]; then
+    source ~/.zshrc_local_before
+fi
 
 alias chrome="open -a 'Google Chrome'"
 
@@ -99,43 +72,30 @@ alias yga="yarn global add"
 alias yl="yarn lint"
 alias yf="yarn format"
 
-# server aliases
-alias pi='ssh pi@10.0.1.2'
-alias omega='ssh kad4446@omega.uta.edu'
-alias idir='ssh idir@129.107.35.247'
-alias smu='ssh plui@genuse34.lyle.smu.edu; wf54zYu3'
-
 # bash aliases
 alias mv="mv -iv"
 alias cp="cp -riv"
 alias mkdir="mkdir -vp"
 
 # zsh aliases
-alias zshr="source ~/.zshrc"
-alias zsho="code ~/.zshrc"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$ANDROID_HOME/emulator
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+alias zshr="source ~/.dotfiles/zshrc"
+alias zsho="code ~/.dotfiles/zshrc"
 
 # fnm
 export PATH=/Users/Ky/.fnm:$PATH
 eval "`fnm env`"
+
+# Allow local customizations in the ~/.shell_local_after file
+if [ -f ~/.shell_local_after ]; then
+    source ~/.shell_local_after
+fi
+
+# Allow local customizations in the ~/.zshrc_local_after file
+if [ -f ~/.zshrc_local_after ]; then
+    source ~/.zshrc_local_after
+fi
+
+# Allow private customizations (not checked in to version control)
+if [ -f ~/.shell_private ]; then
+    source ~/.shell_private
+fi
