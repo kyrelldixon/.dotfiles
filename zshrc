@@ -72,10 +72,14 @@ alias yga="yarn global add"
 alias yl="yarn lint"
 alias yf="yarn format"
 
-# bash aliases
+# shell aliases
 alias mv="mv -iv"
 alias cp="cp -riv"
 alias mkdir="mkdir -vp"
+alias ls="lsd"
+alias ll="ls -lah"
+alias la="ls -A"
+alias l="ls"
 
 # zsh aliases
 alias zshr="source ~/.dotfiles/zshrc"
