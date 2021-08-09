@@ -1,0 +1,11 @@
+# Personal account - default config
+Host github.com
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa
+
+# Work account
+Host github.com-kaicodes
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa_kaicodes
