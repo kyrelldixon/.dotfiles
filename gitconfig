@@ -12,3 +12,5 @@
     path = .gitconfig.kaicodes
 [hub]
 	protocol = https
+[init]
+	defaultBranch = main

@@ -11,6 +11,7 @@ fi
 alias chrome="open -a 'Google Chrome'"
 
 # Git Aliases
+alias glog='git log --pretty=oneline'
 alias gi='git ignore'
 alias gs='git status'
 alias ga='git add'
@@ -21,17 +22,26 @@ alias gam='git commit --amend'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gb='git branch'
+alias gbr='gb'
+alias gbd='git branch -d'
+alias gbD='git branch -D'
+alias gbmv='git branch -m'
+alias gmv='git branch -m'
 alias gd='git diff'
 alias gt='git checkout'
 alias gp='git pull'
 alias gpo='git pull origin'
-alias gpsh='git push'
-alias gpsho='git push origin'
+# Got this alias from https://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time
+alias gpush='git push -u origin HEAD'
+alias gpull='git pull'
+alias gpsh='gpush'
 alias gm='git merge'
 alias gmm='git merge main'
 alias gclone='git clone'
 alias gsw='git switch'
 alias gswc='git switch -c'
+alias gclean='git stash -u && git stash drop'
+alias gstash='git stash -u'
 
 # Github
 alias ghprc='gh pr create'
@@ -62,6 +72,7 @@ alias nf='npm cache clean && rm -rf node_modules && npm install'
 alias nlg='npm list --global --depth=0'
 
 # yarn aliases
+alias y="yarn"
 alias ys="yarn start"
 alias yt="yarn test"
 alias yd='yarn dev'
@@ -71,6 +82,9 @@ alias yad="yarn add --dev"
 alias yga="yarn global add"
 alias yl="yarn lint"
 alias yf="yarn format"
+
+# python aliases
+alias pip="pip3"
 
 # shell aliases
 alias mv="mv -iv"
@@ -85,9 +99,8 @@ alias l="ls"
 alias zshr="source ~/.dotfiles/zshrc"
 alias zsho="code ~/.dotfiles/zshrc"
 
-# fnm
-export PATH=/Users/Ky/.fnm:$PATH
-eval "`fnm env`"
+# misc commands
+alias migra="docker run --network=host djrobstep/migra migra"
 
 # Allow local customizations in the ~/.shell_local_after file
 if [ -f ~/.shell_local_after ]; then
