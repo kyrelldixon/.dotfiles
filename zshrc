@@ -71,7 +71,7 @@ alias ns='npm start'
 alias nf='npm cache clean && rm -rf node_modules && npm install'
 alias nlg='npm list --global --depth=0'
 
-# yarn aliases
+# bun aliases
 alias y="yarn"
 alias ys="yarn start"
 alias yt="yarn test"
@@ -82,6 +82,14 @@ alias yad="yarn add --dev"
 alias yga="yarn global add"
 alias yl="yarn lint"
 alias yf="yarn format"
+
+alias b="bun"
+alias bs="bun start"
+alias bd="bun dev"
+alias bt="bun test"
+alias ba="bun add"
+alias bad="bun add -D"
+alias bl="bun run lint"
 
 # python aliases
 alias pip="pip3"
@@ -94,13 +102,12 @@ alias ls="lsd"
 alias ll="ls -lah"
 alias la="ls -A"
 alias l="ls"
+# From https://www.hardscrabble.net/2019/tree-but-respecting-your-gitignore/
+alias tree="fd --type f --hidden --exclude .git | tree --fromfile"
 
 # zsh aliases
 alias zshr="source ~/.dotfiles/zshrc"
 alias zsho="code ~/.dotfiles/zshrc"
-
-# misc commands
-alias migra="docker run --network=host djrobstep/migra migra"
 
 # Allow local customizations in the ~/.shell_local_after file
 if [ -f ~/.shell_local_after ]; then
@@ -116,3 +123,16 @@ fi
 if [ -f ~/.shell_private ]; then
     source ~/.shell_private
 fi
+
+# bun completions
+[ -s "/Users/Ky/.bun/_bun" ] && source "/Users/Ky/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+. "$HOME/.local/bin/env"
